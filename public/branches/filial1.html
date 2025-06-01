@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filial 1 – Sotuv</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="page-title">📦 Filial 1 – Mahsulotlar</h1>
+
+  <!-- 🧁 Mahsulotlar ro'yxati -->
+  <div class="product-grid" id="product-grid">
+    <!-- JS orqali mahsulot kartalari shu yerga yuklanadi -->
+  </div>
+
+  <!-- 👉 Yon panel (sotuv formasi) -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-content">
+      <h2 id="sidebar-title">Mahsulotni sotish</h2>
+      <form id="sell-form">
+        <input type="hidden" id="selected-product-name" name="product" />
+        <input type="hidden" id="selected-unit" name="unit" />
+        <input type="hidden" name="branch" value="Filial 1" />
+
+        <div class="form-group">
+          <label for="quantity">Miqdori</label>
+          <input type="number" id="quantity" name="quantity" required />
+        </div>
+
+        <div class="form-group">
+          <label for="price">Narxi (so‘m)</label>
+          <input type="number" id="price" name="price" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Sana</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">✅ Yuborish</button>
+          <button type="button" class="btn cancel" id="cancel-btn">❌ Bekor qilish</button>
+        </div>
+        <p id="status-message"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="./branch-form.js"></script>
+</body>
+</html>

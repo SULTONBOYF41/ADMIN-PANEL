@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruxshona Tort - Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎂 Ruxshona Tort - Admin Panel</h1>
+    <nav>
+      <button onclick="showPage('report')">📊 Hisobotlar</button>
+      <button onclick="showPage('orders')">🛒 Buyurtmalar</button>
+      <button onclick="showPage('expenses')">💸 Xarajatlar</button>
+      <button onclick="showPage('production')">📦 Ishlab chiqarish</button>
+      <button onclick="showPage('products')">🢁 Mahsulotlar</button>
+      <a href="/warehouse/warehouse.html">
+        <button>📒 Omborxona</button>
+      </a>
+      <a href="./branch-login/index.html">
+        <button>Sotuvlar</button>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="page-report" class="page active">
+      <h2>📊 Hisobot turlari</h2>
+      <div class="report-type-selector">
+        <label><input type="radio" name="reportType" value="kunlik" checked /> Kunlik</label>
+        <label><input type="radio" name="reportType" value="haftalik" /> Haftalik</label>
+        <label><input type="radio" name="reportType" value="oylik" /> Oylik</label>
+      </div>
+
+      <div class="report-date-input">
+        <input type="date" id="report-date" />
+        <input type="week" id="report-week" style="display: none" />
+        <input type="month" id="report-month" style="display: none" />
+        <button id="view-report-btn">📊 Hisobotni ko‘rish</button>
+        <button id="download-pdf-btn">📄 PDF yuklab olish</button>
+      </div>
+
+      <div class="report-summary" id="report-summary" style="display: none">
+        <div class="card report-card"><span class="label">🧁 Ishlab chiqarilgan:</span> <span id="produced-count">-</span></div>
+        <div class="card report-card"><span class="label">🏪 Filialdan sotilgan:</span> <span id="sold-store">-</span></div>
+        <div class="card report-card"><span class="label">📬 Buyurtmalar:</span> <span id="order-count">-</span></div>
+        <div class="card report-card"><span class="label">💰 Umumiy tushum:</span> <span id="total-income">-</span></div>
+        <div class="card report-card"><span class="label">💸 Xarajatlar:</span> <span id="total-expenses">-</span></div>
+        <div class="card report-card"><span class="label">🟢 Sof foyda:</span> <span id="net-profit">-</span></div>
+      </div>
+
+
+      <div class="row" id="report-row" style="display: none">
+        <div class="col">
+          <h3>📜 Buyurtmalar statistikasi</h3>
+          <ul id="order-sources" class="source-list"></ul>
+        </div>
+        <div class="col">
+          <h3>🏆 Top 10 mahsulotlar</h3>
+          <table class="top-products-table">
+            <thead><tr><th>Mahsulot</th><th>Sotilgan</th></tr></thead>
+            <tbody id="top-products"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 id="chart-title" style="display: none;">📊 Grafik ko‘rinishi</h3>
+      <canvas id="reportChart" width="600" height="300" style="display: none;"></canvas>
+    </section>
+
+    <!-- 🛒 BUYURTMALAR -->
+    <section id="page-orders" class="page">
+      <h2>➕ Yangi buyurtma qo‘shish</h2>
+      <form id="order-form">
+        <input name="customer" placeholder="Mijoz ismi" required />
+        <input name="product" placeholder="Mahsulot nomi" required />
+        <input name="quantity" type="number" placeholder="Miqdori" required />
+        <input name="unit" placeholder="Birlik (dona/kg)" required />
+        <input name="source" placeholder="Manba (Instagram/Telegram...)" required />
+        <input name="price" type="number" placeholder="Narxi so‘mda" required />
+        <input name="date" type="date" required />
+        <input name="note" placeholder="Izoh (ixtiyoriy)" />
+        <button type="submit">✅ Qo‘shish</button>
+      </form>
+    </section>
+
+    <!-- 💸 XARAJATLAR -->
+    <section id="page-expenses" class="page">
+      <h2>💸 Yangi xarajat qo‘shish</h2>
+      <form id="expense-form">
+        <input name="type" placeholder="Xarajat turi" required />
+        <input name="amount" type="number" placeholder="Miqdor (so‘mda)" required />
+        <input name="date" type="date" required />
+        <input name="note" placeholder="Izoh (ixtiyoriy)" />
+        <button type="submit">✅ Qo‘shish</button>
+      </form>
+      <h3>🧾 So‘nggi xarajatlar</h3>
+      <table id="expenses-table">
+        <thead>
+          <tr><th>Sana</th><th>Turi</th><th>Miqdor</th><th>Izoh</th></tr>
+        </thead>
+        <tbody id="expenses-body"></tbody>
+      </table>
+    </section>
+
+    <!-- 📦 ISHLAB CHIQARISH -->
+    <section id="page-production" class="page">
+      <h2>📦 Yangi mahsulot qo‘shish</h2>
+      <form id="production-form">
+        <input name="name" placeholder="Mahsulot nomi" required />
+        <input name="quantity" type="number" placeholder="Miqdor (raqam)" required />
+        <input name="unit" placeholder="Birlik (kg/dona)" required />
+        <input name="date" type="date" required />
+        <button type="submit">✅ Qo‘shish</button>
+      </form>
+      <h3>🧾 So‘nggi mahsulotlar</h3>
+      <table>
+        <thead><tr><th>Sana</th><th>Nom</th><th>Miqdor</th><th>Birlik</th></tr></thead>
+        <tbody id="production-list"></tbody>
+      </table>
+    </section>
+
+    <!-- 📦 MAHSULOTLAR -->
+    <section id="page-products" class="page">
+      <h2>📦 Mahsulotlar katalogi</h2>
+      <form id="product-form" enctype="multipart/form-data">
+        <input name="name" placeholder="Mahsulot nomi" required />
+        <input name="category" placeholder="Kategoriya" required />
+        <input name="price" type="number" placeholder="Narxi (so'm)" required />
+        <input name="unit" placeholder="Birlik (kg/dona)" required />
+        <input name="image" type="file" accept="image/*" />
+        <textarea name="description" placeholder="Qo'shimcha ma'lumot (ixtiyoriy)"></textarea>
+        <button type="submit" id="add-button">➕ Mahsulot qo‘shish</button>
+        <button type="button" id="update-button" style="display: none;">🔁 Yangilash</button>
+      </form>
+      <h3>📋 Mahsulotlar ro‘yxati</h3>
+      <table id="product-table">
+        <thead>
+          <tr><th>Rasm</th><th>Nom</th><th>Kategoriya</th><th>Narx</th><th>Izoh</th><th>Amallar</th></tr>
+        </thead>
+        <tbody id="products-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ruxshona Tort. Barcha huquqlar himoyalangan.</p>
+  </footer>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById("page-" + id).classList.add("active");
+    }
+  </script>
+  <script type="module" src="./scripts/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

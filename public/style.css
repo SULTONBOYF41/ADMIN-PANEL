@@ -1,0 +1,449 @@
+/* === Umumiy tanlovlar === */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* === Header va Navbar === */
+header {
+  background-color: #770E13;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav button {
+  background-color: white;
+  color: #770E13;
+  border: 2px solid #770E13;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav button:hover,
+nav button.active {
+  background-color: #770E13;
+  color: white;
+}
+
+/* === Sahifalar === */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+  background-color: white;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin-top: 0;
+  color: #770E13;
+}
+
+/* === Hisobot turi tanlash === */
+.report-type-selector label {
+  margin-right: 1rem;
+  font-weight: bold;
+}
+
+.report-date-input {
+  margin: 1rem 0;
+}
+
+.report-date-input input,
+.report-date-input button {
+  margin-right: 0.5rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.report-date-input button {
+  background-color: #770E13;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.report-date-input button:hover {
+  background-color: #5c0a0f;
+}
+
+/* === Statistik kartalar === */
+.report-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.report-summary .card {
+  flex: 1 1 200px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 6px solid #770E13;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+}
+
+/* === Ikki ustunli qator === */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.col {
+  flex: 1 1 400px;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  float: right;
+  color: #555;
+}
+
+.more-btn:hover {
+  color: #000;
+}
+
+#order-sources li {
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #444;
+}
+
+/* === Jadval === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* === Form elementlari === */
+form input,
+form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #770E13;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #5c0a0f;
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #770E13;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* === Mobil uchun === */
+@media screen and (max-width: 768px) {
+  nav button {
+    display: block;
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+
+  .report-summary {
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  form input, form button {
+    font-size: 1rem;
+  }
+}
+
+/* === Xarajatlar Formasi === */
+#page-expenses form input,
+#page-expenses form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#page-expenses form button {
+  background-color: #770E13;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+#page-expenses form button:hover {
+  background-color: #5c0a0f;
+}
+
+/* === Xarajatlar Jadvali === */
+#expenses-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#expenses-table th, #expenses-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#expenses-table th {
+  background-color: #f4f4f4;
+}
+
+
+/* ======= MAHSULOTLAR ======= */
+#page-products form {
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+#page-products form input,
+#page-products form button {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#page-products form button {
+  grid-column: span 2;
+  background-color: #770E13;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#page-products form button:hover {
+  background-color: #5d0a0f;
+}
+
+.product-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fff8f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.product-card h4 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+  color: #770E13;
+}
+
+.product-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  position: relative;
+}
+
+/* Qizil fonli menyu konteyneri */
+.dropdown-wrapper {
+  display: inline-block;
+  position: relative;
+  background-color: #770E13; /* Asosiy qizil */
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Oq rangdagi nuqtalar */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white; /* Nuqtalar oq */
+  cursor: pointer;
+}
+
+/* Dropdown menyu o'zgarishsiz qoladi */
+.dropdown-menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  display: none;
+  min-width: 120px;
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hoverda ko‘rsatish */
+.dropdown-wrapper:hover .dropdown-menu {
+  display: block;
+}
+#back-to-main {
+  display: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #770E13;
+  border: 2px solid #770E13;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#back-to-main:hover {
+  background-color: #770E13;
+  color: #fff;
+}
+
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #333;
+  border-left: 6px solid #770E13;
+}
+
+.card span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+#order-sources {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+#order-stats-card {
+  margin-top: 10px;
+}
+
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.card table th, .card table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.card table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+

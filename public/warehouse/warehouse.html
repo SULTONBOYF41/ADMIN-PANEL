@@ -1,0 +1,37 @@
+<!-- 📁 public/warehouse/warehouse.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📦 Omborxona nazorati</title>
+
+  <!-- 🌐 CSS fayllar -->
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./warehouse.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📦 Omborxona nazorati</h1>
+    <a href="/index.html" class="back-link">← Asosiy sahifaga qaytish</a>
+
+    <!-- 🔍 Qidiruv -->
+    <div class="search-filter">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="🔍 Mahsulot nomi bo‘yicha qidiring..."
+      />
+    </div>
+
+    <!-- 🔘 Kategoriyalar -->
+    <div id="category-buttons" class="categories"></div>
+
+    <!-- 🧾 Mahsulotlar ro‘yxati -->
+    <div id="product-cards" class="product-grid"></div>
+  </div>
+
+  <!-- ✅ JavaScript -->
+  <script src="./warehouse.js"></script>
+</body>
+</html>
